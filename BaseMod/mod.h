@@ -1,6 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include <string>
+#include "imgui/imgui.h"
 
 extern int mhfdll_addy = 0;
 
@@ -12,6 +13,10 @@ public:
 	Mod(std::string name, std::string display_name) {
 		this->name = name;
 		this->display_name = display_name;
+	}
+
+	void initImGuiContext(ImGuiContext* ctx) {
+		ImGui::SetCurrentContext(ctx);
 	}
 
 	//Will run once at game start, where you initialize things like hooks
