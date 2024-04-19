@@ -1,6 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include <string>
+#include <iostream>
 #include "imgui/imgui.h"
 
 extern int mhfdll_addy = 0;
@@ -15,10 +16,8 @@ public:
 		this->display_name = display_name;
 	}
 
-	void initImGuiContext(ImGuiContext* ctx) {
-		ImGui::SetCurrentContext(ctx);
-	}
-
+	
+	virtual void InitImGUIContext(ImGuiContext* ctx) = 0;
 	//Will run once at game start, where you initialize things like hooks
 	virtual void Attach() = 0;
 	//Will run once on detach, used to clean up memory if needed

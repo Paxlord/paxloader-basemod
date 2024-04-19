@@ -10,7 +10,7 @@ void BaseMod::Detach() {
 }
 
 void BaseMod::DrawUI() {
-
+	ImGui::Text("Hello From Mod");
 }
 
 void BaseMod::UpdateLobby() {
