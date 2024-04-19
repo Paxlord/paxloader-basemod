@@ -16,7 +16,6 @@ public:
 	void UpdateQuest() override;
 	void UpdateLobby() override;
 	void InitImGUIContext(ImGuiContext* ctx) override {
-		std::cout << "Passing context" << std::endl;
 		ImGui::SetCurrentContext(ctx);
 	}
 };
