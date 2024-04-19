@@ -163,6 +163,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="binutils.h" />
     <ClInclude Include="mod.h" />
     <ClInclude Include="BaseMod.h" />
   </ItemGroup>
