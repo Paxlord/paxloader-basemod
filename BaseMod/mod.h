@@ -3,20 +3,20 @@
 #include <string>
 #include <iostream>
 #include "imgui/imgui.h"
-
-extern int mhfdll_addy = 0;
+#include "globals.h"
 
 class Mod {
 public:
 	std::string name;
 	std::string display_name;
+	int required_version;
 
-	Mod(std::string name, std::string display_name) {
+	Mod(std::string name, std::string display_name, int required_version) {
 		this->name = name;
 		this->display_name = display_name;
+		this->required_version = required_version;
 	}
 
-	
 	virtual void InitImGUIContext(ImGuiContext* ctx) = 0;
 	//Will run once at game start, where you initialize things like hooks
 	virtual void Attach() = 0;
@@ -30,6 +30,3 @@ public:
 	virtual void UpdateLobby() {};
 };
 
-extern "C" __declspec(dllexport) void setDllAddress(int dll_addy) {
-	mhfdll_addy = dll_addy;
-}
