@@ -1,9 +1,6 @@
 #pragma once
-#include <Windows.h>
 #include <string>
-#include <iostream>
 #include "imgui/imgui.h"
-#include "globals.h"
 
 class Mod {
 public:

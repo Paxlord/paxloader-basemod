@@ -1,4 +1,6 @@
 #include "BaseMod.h"
+#include <iostream>
+#include "globals.h"
 
 bool myCheckBox = false;
 int counter = 0;
@@ -31,6 +33,6 @@ void BaseMod::UpdateQuest() {
 
 extern "C" {
 	__declspec(dllexport) Mod* createMod() {
-		return new BaseMod("awesomeMod", "My Test Mod", 2);
+		return new BaseMod("awesomeMod", "My Test Mod", 1);
 	}
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-extern int mhfdll_addy = 0;
+inline int mhfdll_addy = 0;
 
 inline int OffsetByDll(int addy) {
 	return addy + mhfdll_addy;

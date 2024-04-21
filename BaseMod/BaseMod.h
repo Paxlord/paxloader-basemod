@@ -1,7 +1,5 @@
 #pragma once
 #include "mod.h"
-#include <iostream>
-#include "binutils.h"
 
 class BaseMod :
 	public Mod
