@@ -6,12 +6,16 @@ class Mod {
 public:
 	std::string name;
 	std::string display_name;
+	std::string version;
+	bool hge_only;
 	int required_version;
 
-	Mod(std::string name, std::string display_name, int required_version) {
+	Mod(std::string name, std::string display_name, std::string version , int required_version, bool hge_only) {
 		this->name = name;
 		this->display_name = display_name;
 		this->required_version = required_version;
+		this->version = version;
+		this->hge_only = hge_only;
 	}
 
 	virtual void InitImGUIContext(ImGuiContext* ctx) = 0;

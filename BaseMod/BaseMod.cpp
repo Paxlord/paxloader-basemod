@@ -1,6 +1,8 @@
 #include "BaseMod.h"
 #include <iostream>
 #include "globals.h"
+#include "config.h"
+
 
 bool myCheckBox = false;
 int counter = 0;
@@ -10,7 +12,7 @@ void BaseMod::Attach() {
 	std::cout << "This is a call from test mod attach function! dll handle is : " << mhfdll_addy << std::endl;
 }
 
-//Will run once at game end, doesn't really need to be used for now
+//Will run once at game end, loader doesn't use it for now
 void BaseMod::Detach() {
 
 }
@@ -33,6 +35,6 @@ void BaseMod::UpdateQuest() {
 
 extern "C" {
 	__declspec(dllexport) Mod* createMod() {
-		return new BaseMod("awesomeMod", "My Test Mod", 1);
+		return new BaseMod(NAME, DISPLAY_NAME, VERSION, REQUIRED_VERSION, HGE_ONLY);
 	}
 }
