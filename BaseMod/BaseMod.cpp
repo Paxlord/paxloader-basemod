@@ -6,6 +6,8 @@
 
 bool myCheckBox = false;
 int counter = 0;
+int my_random_address = OffsetByDll(0x500);
+int my_random_address2 = 0x500;
 
 //Will run once at game start, use it to setup hooks, offset address, initialize stuff...
 void BaseMod::Attach() {
@@ -23,7 +25,7 @@ void BaseMod::DrawUI() {
 	ImGui::Checkbox("Test checkbox", &myCheckBox);
 }
 
-//Will hook the main lobby update function and run once every game frame
+//TO DO: Will hook the main lobby update function and run once every game frame
 void BaseMod::UpdateLobby() {
 
 }
