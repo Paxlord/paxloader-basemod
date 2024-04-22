@@ -6,8 +6,6 @@
 
 bool myCheckBox = false;
 int counter = 0;
-int my_random_address = OffsetByDll(0x500);
-int my_random_address2 = 0x500;
 
 //Will run once at game start, use it to setup hooks, offset address, initialize stuff...
 void BaseMod::Attach() {
