@@ -2,7 +2,7 @@
 
 inline int mhfdll_addy = 0;
 
-inline void OffsetByDll(int& addy) {
+inline void OffsetByDll(DWORD& addy) {
 	addy += mhfdll_addy;
 }
 
