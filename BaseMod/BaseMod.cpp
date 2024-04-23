@@ -1,6 +1,7 @@
 #include "BaseMod.h"
 #include <Windows.h>
 #include <iostream>
+#include <MinHook.h>
 #include "globals.h"
 #include "config.h"
 

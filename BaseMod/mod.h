@@ -2,6 +2,8 @@
 #include <string>
 #include "imgui/imgui.h"
 
+#pragma comment(lib, "libMinHook.x86.lib")
+
 class Mod {
 public:
 	std::string name;
