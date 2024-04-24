@@ -1,9 +1,15 @@
 # Base Mod for Pax's MHFZ Mod Loader
 This repo is meant to act as a mod template and documentation for my mod loader.
 
+## Getting Started
+1. Clone the repo
+2. Edit the config.h
+3. Every function that should be edited are exposed in BaseMod.cpp having to edit any other existing files in this template should be very rare.
+
 ## Mod Structure
 The base mod class derives from a Mod virtual class. This base mod class has to expose the same functions and members as the virtual class for it to be considered a valid Mod that can be loaded by the mod loader. 
-A mod exposes a few different functions, here's the class definition : 
+
+Here's the class definition : 
 ```cpp
 class BaseMod :
 	public Mod
@@ -23,10 +29,11 @@ public:
 };
 ```
 
-- ```Attach()``` : Is executed once when this mod is loaded into memory, this should be used as an initialization function for 90% of cases. This also where you should set up your hooks and where you should offset your addresses. 
-- ```Detach()``` : Is meant to be used as a clean up function, **Not Implemented Yet** will be implemented when I find a use for it.
-- ```DrawUI()``` : Has direct access to the injected ImGUI context and can call any ImGUI function from there.
-- ```UpdateXX()``` : Direct access to the main update function in game. The code here runs every GAME frame. Pretty useful for catching unstable pointers and reading inputs.
+- ```Attach()``` : Is executed once when the mod is loaded into memory, this should be used as an initialization function for 90% of cases. This is also where you should set up your hooks and where you should offset your addresses. 
+- ```Detach()``` : Is meant to be used as a clean up function, (**Not Implemented Yet** will be implemented when I find a decent way to detect the game shutting down in the loader.)
+- ```DrawUI()``` : Has direct access to the injected ImGUI context and can call any ImGUI function from there. By default everything drawn here will be inside the main mod menu inside a collapsible header with mod display name. ImGui supports Child Windows if you need seperate UI Context outside of the main mod menu. 
+- ```UpdateQuest()``` : Direct access to the main update function in game. The code here runs every GAME frame while the player is inside a quest. Pretty useful for catching unstable pointers and doing stuff like reading inputs.
+- ```UpdateLobby()``` : Same as UpdateQuest but runs every game frame while the player is in Mezeporta. (**Not Implemented Yet** will be implemented when I find a good enough hooking point.)
 - ```InitImGUIContext()``` : Should not be touched, is used to pass the main context at initialization. 
 
 ## Config.h
@@ -40,7 +47,3 @@ inline const int REQUIRED_VERSION = 1; //Required loader version for this mod
 inline const bool HGE_ONLY = false; //Will only run if the loader blocks Low-Grade edition from launching
 ```
 
-## Getting Started
-1. Clone the repo
-2. Edit the config.h
-3. Everything function is exposed in BaseMod.cpp having to edit any other file in this template should be very rare.
