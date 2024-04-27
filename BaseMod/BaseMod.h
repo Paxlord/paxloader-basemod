@@ -8,11 +8,12 @@ public:
 
 	using Mod::Mod;
 
-	void Attach() override;
-	void Detach() override;
+	void OnAttach() override;
+	void OnDetach() override;
 	void DrawUI() override;
-	void UpdateQuest() override;
-	void UpdateLobby() override;
+	void OnUpdateQuest() override;
+	void OnUpdateLobby() override;
+	void OnImGUIInit() override;
 	void InitImGUIContext(ImGuiContext* ctx) override {
 		ImGui::SetCurrentContext(ctx);
 	}

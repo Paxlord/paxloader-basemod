@@ -5,17 +5,21 @@
 #include "globals.h"
 #include "config.h"
 
-
 bool myCheckBox = false;
 int counter = 0;
 
 //Will run once at game start, use it to setup hooks, offset address, initialize stuff...
-void BaseMod::Attach() {
+void BaseMod::OnAttach() {
 	std::cout << "This is a call from test mod attach function! dll handle is : " << mhfdll_addy << std::endl;
 }
 
 //Will run once at game end, loader doesn't use it for now
-void BaseMod::Detach() {
+void BaseMod::OnDetach() {
+
+}
+
+//Will run once the ImGUI and Dx9 Context has been initialized, use this function to create texture data
+void BaseMod::OnImGUIInit() {
 
 }
 
@@ -26,12 +30,12 @@ void BaseMod::DrawUI() {
 }
 
 //TO DO: Will hook the main lobby update function and run once every game frame
-void BaseMod::UpdateLobby() {
+void BaseMod::OnUpdateLobby() {
 
 }
 
 //Will hook the main quest update function and run once every game frame
-void BaseMod::UpdateQuest() {
+void BaseMod::OnUpdateQuest() {
 	counter++;
 }
 
