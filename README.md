@@ -6,7 +6,7 @@ This repo is meant to act as a mod template and documentation for my mod loader.
 2. Open the project .sln and change the project name to the .dll name you want
 3. Change the target to Release/x86 or Debug/x86 depending on the loader build target (if installed through github releases it's Release/x86)
 4. Edit the config.h
-5. Every function that should be edited are exposed in BaseMod.cpp having to edit any other existing files in this template should be very rare.
+5. Every function that should be edited is exposed in BaseMod.cpp having to edit any other existing files in this template should be very rare.
 6. Building the project will output a (ProjectName).dll, this is your mod. 
 
 ## Mod Structure
