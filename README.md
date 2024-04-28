@@ -3,8 +3,11 @@ This repo is meant to act as a mod template and documentation for my mod loader.
 
 ## Getting Started
 1. Clone the repo
-2. Edit the config.h
-3. Every function that should be edited are exposed in BaseMod.cpp having to edit any other existing files in this template should be very rare.
+2. Open the project .sln and change the project name to the .dll name you want
+3. Change the target to Release/x86 or Debug/x86 depending on the loader build target (if installed through github releases it's Release/x86)
+4. Edit the config.h
+5. Every function that should be edited are exposed in BaseMod.cpp having to edit any other existing files in this template should be very rare.
+6. Building the project will output a (ProjectName).dll, this is your mod. 
 
 ## Mod Structure
 The base mod class derives from a Mod virtual class. This base mod class has to expose the same functions and members as the virtual class for it to be considered a valid Mod that can be loaded by the mod loader. 
