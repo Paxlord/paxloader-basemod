@@ -10,7 +10,8 @@ public:
 
 	void OnAttach() override;
 	void OnDetach() override;
-	void DrawUI() override;
+	void DrawUI(bool show_menu) override;
+	void DrawModMenu() override;
 	void OnUpdateQuest() override;
 	void OnUpdateLobby() override;
 	void OnImGUIInit() override;

@@ -24,9 +24,13 @@ void BaseMod::OnImGUIInit() {
 }
 
 //Has access to the main ImGui context, can draw anything related to the mod in there
-void BaseMod::DrawUI() {
+void BaseMod::DrawModMenu() {
 	ImGui::Text("Hello From Mod %d", counter);
 	ImGui::Checkbox("Test checkbox", &myCheckBox);
+}
+
+void BaseMod::DrawUI(bool show_menu) {
+
 }
 
 //TO DO: Will hook the main lobby update function and run once every game frame
