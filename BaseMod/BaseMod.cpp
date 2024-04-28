@@ -25,8 +25,10 @@ void BaseMod::OnImGUIInit() {
 
 //Has access to the main ImGui context, can draw anything related to the mod in there
 void BaseMod::DrawModMenu() {
-	ImGui::Text("Hello From Mod %d", counter);
-	ImGui::Checkbox("Test checkbox", &myCheckBox);
+	if (ImGui::CollapsingHeader(DISPLAY_NAME.c_str())) {
+		ImGui::Text("Hello From Mod %d", counter);
+		ImGui::Checkbox("Test checkbox", &myCheckBox);
+	}
 }
 
 void BaseMod::DrawUI(bool show_menu) {
