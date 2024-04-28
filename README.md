@@ -18,22 +18,24 @@ public:
 
 	using Mod::Mod;
 
-	void Attach() override;
-	void Detach() override;
+	void OnAttach() override;
+	void OnDetach() override;
 	void DrawUI() override;
-	void UpdateQuest() override;
-	void UpdateLobby() override;
+	void OnUpdateQuest() override;
+	void OnUpdateLobby() override;
+	void OnImGUIInit() override;
 	void InitImGUIContext(ImGuiContext* ctx) override {
 		ImGui::SetCurrentContext(ctx);
 	}
 };
 ```
 
-- ```Attach()``` : Is executed once when the mod is loaded into memory, this should be used as an initialization function for 90% of cases. This is also where you should set up your hooks and where you should offset your addresses. 
-- ```Detach()``` : Is meant to be used as a clean up function, (**Not Implemented Yet** will be implemented when I find a decent way to detect the game shutting down in the loader.)
+- ```OnAttach()``` : Is executed once when the mod is loaded into memory, this should be used as an initialization function for 90% of cases. This is also where you should set up your hooks and where you should offset your addresses. 
+- ```OnDetach()``` : Is meant to be used as a clean up function, (**Not Implemented Yet** will be implemented when I find a decent way to detect the game shutting down in the loader.)
+- ```OnImGUIInit()``` : Is run after ImGui and DX9 have been fully initialized, should be used mainly for Creating Images through the CreateImage function located in mod.h
 - ```DrawUI()``` : Has direct access to the injected ImGUI context and can call any ImGUI function from there. By default everything drawn here will be inside the main mod menu inside a collapsible header with mod display name. ImGui supports Child Windows if you need seperate UI Context outside of the main mod menu. 
-- ```UpdateQuest()``` : Direct access to the main update function in game. The code here runs every GAME frame while the player is inside a quest. Pretty useful for catching unstable pointers and doing stuff like reading inputs.
-- ```UpdateLobby()``` : Same as UpdateQuest but runs every game frame while the player is in Mezeporta. (**Not Implemented Yet** will be implemented when I find a good enough hooking point.)
+- ```OnUpdateQuest()``` : Direct access to the main update function in game. The code here runs every GAME frame while the player is inside a quest. Pretty useful for catching unstable pointers and doing stuff like reading inputs.
+- ```OnUpdateLobby()``` : Same as UpdateQuest but runs every game frame while the player is in Mezeporta. (**Not Implemented Yet** will be implemented when I find a good enough hooking point.)
 - ```InitImGUIContext()``` : Should not be touched, is used to pass the main context at initialization. 
 
 ## Config.h
