@@ -5,7 +5,7 @@ This repo is meant to act as a mod template and documentation for my mod loader.
 - Visual Studio 2018+
 
 ## Getting Started
-1. Clone the repo
+1. Clone the repo or use the "use as template" option
 2. Open the project .sln and change the project name to the .dll name you want
 3. Change the target to Release/x86 or Debug/x86 depending on the loader build target (if installed through github releases it's Release/x86)
 4. Edit the config.h
