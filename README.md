@@ -1,6 +1,9 @@
 # Base Mod for Pax's MHFZ Mod Loader
 This repo is meant to act as a mod template and documentation for my mod loader.
 
+## Requirements
+- Visual Studio 2018+
+
 ## Getting Started
 1. Clone the repo
 2. Open the project .sln and change the project name to the .dll name you want
